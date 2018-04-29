@@ -65,3 +65,30 @@ table {
 
 /*-----my code-----*/
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+.carousel {
+  width: 400px;
+  height: 300px;
+
+  border: 2px solid #444;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+ul {
+  width: 2000px;
+  display: flex;
+}
+
+li {
+  width: 400px;
+  height: 300px;
+  list-style: none;
+}
