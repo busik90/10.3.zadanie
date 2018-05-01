@@ -35,7 +35,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 80%;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -82,6 +82,8 @@ body {
   overflow: hidden;
 
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 ul {
@@ -95,4 +97,35 @@ li {
   width: 400px;
   height: 300px;
   list-style: none;
+}
+
+.btn {
+  position: relative;
+  width: 25%;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+
+  transition: 3s;
+}
+
+
+#js-btn-left {
+  text-align: left;
+  padding-left: 20px;
+}
+
+#js-btn-right {
+  text-align: right;
+  padding-right: 20px;
+}
+
+#js-btn-left:hover {
+  background: linear-gradient(to right, rgba(30,30,30,1) 0%,rgba(30,30,30,0) 80%);
+}
+
+#js-btn-right:hover {
+  background: linear-gradient(to left, rgba(30,30,30,1) 0%,rgba(30,30,30,0) 80%);
 }
