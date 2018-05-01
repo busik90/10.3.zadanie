@@ -79,7 +79,7 @@ body {
 
   border: 2px solid #444;
   border-radius: 20px;
-  overflow: hidden;
+  /* overflow: hidden; */
 
   position: relative;
   display: flex;
@@ -91,6 +91,7 @@ ul {
   display: flex;
 
   position: absolute;
+  left: -400px;
 }
 
 li {
@@ -108,7 +109,7 @@ li {
   border: none;
   background-color: transparent;
 
-  transition: 3s;
+  transition: 3s; /* Niestety nie działa na gradient */
 }
 
 
