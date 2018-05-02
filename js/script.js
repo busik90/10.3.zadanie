@@ -1,48 +1,41 @@
 $(function () {
-  var carouselList = $('#carousel ul'),
-      interval;
+  var carouselList = $('#carousel #slides'),
+      carouselItems = carouselList.find('li'),
+      interval,
+      position = 0;
 
-  $('#js-btn-left').click(function() { changeSlide('left') });
-  $('#js-btn-right').click(function() { changeSlide('right') });
+  $('#js-btn-left').click(function() { setPosition('preview') });
+  $('#js-btn-right').click(function() { setPosition('next') });
       
   function autoMoveSlide() {
-    interval = setTimeout(function() { changeSlide('left') }, 3000);
+    interval = setTimeout(function() { setPosition('next') }, 3000);
   }
 
   autoMoveSlide();
 
-  function changeSlide(direction) {
-    console.log('changeSlide: ' + direction);
-    switch(direction) {
-      case 'left':       
-        carouselList.animate({ left: '-800px' }, 500, function() { moveSlide(direction) });
-        break;
-      case 'right':    
-        carouselList.animate({ left: '0px' }, 500, function() { moveSlide(direction) });
-        break;
+  // Ustaw pozycję
+  function setPosition(moveTo) {
+    if(moveTo == 'next') {
+      position = position + 400;
+    } else if(moveTo == 'preview') {
+      position = position - 400;
+    } else {
+      position = 400*moveTo;
     }
+
+    if (position == 2000) {
+      position = 0;
+    } else if (position == -400) {
+      position = 1600;
+    }
+
+    changeSlide();
   }
 
-  function moveSlide(direction) {
-    console.log('moveSlide: ' + direction);
-    var firstItem = carouselList.find('li:first'),
-        lastItem = carouselList.find('li:last');
-
-    switch(direction) {
-      case 'left':
-        lastItem.after(firstItem);
-        carouselList.css({
-          left: '-400px'
-        });
-        break;
-      case 'right':
-        firstItem.before(lastItem);
-        carouselList.css({
-          left: '-400px'
-        });
-        break;
-    }
+  function changeSlide() {
+    carouselList.animate({ left: -position }, 500, function() { console.log(position) });
     clearTimeout(interval);
     autoMoveSlide();
   }
+
 });
