@@ -86,18 +86,22 @@ body {
   justify-content: space-between;
 }
 
-#slides {
+/*-----carousel content-----*/
+
+#js-carousel-content {
   width: 2000px;
   display: flex;
 
   position: absolute;
 }
 
-#slides li {
+#js-carousel-content li {
   width: 400px;
   height: 300px;
   list-style: none;
 }
+
+/*-----buttons----- */
 
 .btn {
   position: relative;
@@ -130,7 +134,9 @@ body {
   background: linear-gradient(to left, rgba(30,30,30,1) 0%,rgba(30,30,30,0) 80%);
 }
 
-#slides-nav {
+/*-----carousel navigation-----*/
+
+#js-carousel-nav {
   width: 730px;
   height: 400px;
   padding-top: 28px;
@@ -147,15 +153,21 @@ body {
   z-index: 10;
 }
 
-#slides-nav:hover {
+#js-carousel-nav:hover {
   background: radial-gradient(ellipse at center, rgba(30,30,30,1) 0%,rgba(30,30,30,1) 44%,rgba(30,30,30,0) 66%,rgba(30,30,30,0) 100%)
 }
 
-#slides-nav li {
+#js-carousel-nav li {
   width: 12px;
   height: 12px;
   margin: 10px;
-  background-color: white;
+  background-color: #666;
   border-radius: 50%;
   cursor: pointer;
+}
+
+#js-carousel-nav .active {
+  width: 13px;
+  height: 13px;
+  background-color: white;
 }
