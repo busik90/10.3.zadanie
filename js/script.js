@@ -15,6 +15,7 @@ $(function () {
 
   $('#js-btn-left').click(function() { setCarouselPosition('preview') });
   $('#js-btn-right').click(function() { setCarouselPosition('next') });
+  sliderNavItems.click(function() { setCarouselPosition( $(this).index() ) });
       
   function autoMoveSlide() {
     interval = setTimeout(function() { setCarouselPosition('next') }, 3000);
@@ -36,6 +37,7 @@ $(function () {
 
     } else {
       carouselPos = 400*moveTo;
+      navPos = moveTo;
     }
 
     if (carouselPos == 2000) {
