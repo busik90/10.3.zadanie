@@ -8,11 +8,8 @@ $(function () {
       interval,
       carouselPos = 0,
       navPos = 0;
-
-      console.log(interval);
-      console.log(navPos);
       
-
+  // events
   $('#js-btn-left').click(function() { setCarouselPosition('preview') });
   $('#js-btn-right').click(function() { setCarouselPosition('next') });
   sliderNavItems.click(function() { setCarouselPosition( $(this).index() ) });
@@ -23,14 +20,12 @@ $(function () {
 
   autoMoveSlide();
 
-  // set position
   function setCarouselPosition(moveTo) {
 
     if(moveTo == 'next') {
       carouselPos = carouselPos + 400;
       navPos++;
-
-      console.log(navPos);
+      
     } else if(moveTo == 'preview') {
       carouselPos = carouselPos - 400;
       navPos--;
@@ -60,5 +55,12 @@ $(function () {
     clearTimeout(interval);
     autoMoveSlide();
   }
+
+  // stop carousel when hover
+  $('#carousel').hover(function() {
+    clearTimeout(interval);    
+  }, function() {
+    autoMoveSlide();
+  });
 
 });
