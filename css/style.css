@@ -93,6 +93,7 @@ body {
   display: flex;
 
   position: absolute;
+  left: -400px;
 }
 
 #js-carousel-content li {
